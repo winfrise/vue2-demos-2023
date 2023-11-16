@@ -1,25 +1,27 @@
 <template>
-  <div class="page-cont">
-    <div class="list-box">
-      <VirtualListSelect ref="virtualSelectList"
-        data-key="id"
-        :data-list="dataList"
-        :selectedList.sync="selectedList"
-        :extraProps="{}"
-        :data-component="ItemComponent"
-      >
+  <div>
+    <div class="page-cont">
+      <div class="list-box">
+        <VirtualListSelect ref="virtualSelectList"
+          data-key="id"
+          :data-list="dataList"
+          :selectedList.sync="selectedList"
+          :extraProps="{}"
+          :data-component="ItemComponent"
+        >
 
-      </VirtualListSelect>
-    </div>
+        </VirtualListSelect>
+      </div>
 
-    <div class="list-box">
-      <VirtualListSelect ref="virtualSelectList"
-        data-key="id"
-        :data-list="selectedList"
-        :extraProps="{}"
-        :data-component="ItemComponent"
-      >
-      </VirtualListSelect>
+      <div class="list-box">
+        <VirtualListSelect ref="virtualSelectList"
+          data-key="id"
+          :data-list="selectedList"
+          :extraProps="{}"
+          :data-component="ItemComponent"
+        >
+        </VirtualListSelect>
+      </div>
     </div>
   </div>
 </template>

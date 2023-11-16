@@ -45,6 +45,21 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/date-demo',
+    component: Layout,
+    name: 'DateDemo',
+    meta: {
+      title: 'Date Demo',
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/el-date-demo/index'),
+        meta: { title: '日期Demo', icon: 'table' }
+      },
+    ]
+  },
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',

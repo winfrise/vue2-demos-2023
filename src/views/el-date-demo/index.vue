@@ -22,6 +22,7 @@
       end-placeholder="结束日期"
       align="right"
       @focus="onFocus"
+      @blur="onBlur"
     >
     </el-date-picker>
   </div>
@@ -44,6 +45,8 @@
         const dateRef = this.$refs.datePicker
         const pickerRef = dateRef.picker
         if (pickerRef) {
+          if (this.focusLock) return
+          this.focusLock = true
           const todayElem = pickerRef.$el.querySelector('.today')
           console.log(todayElem)
           setTimeout(() => {
@@ -51,6 +54,10 @@
             todayElem.click()
           }, 200)
         }
+      },
+      onBlur() {
+        console.log('blur')
+        this.focusLock = false
       }
     }
   };

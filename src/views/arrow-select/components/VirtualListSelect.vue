@@ -73,7 +73,11 @@ export default {
   created() {
     this.$on('selectChange', (value, source, index) => {
       this.currentIndex = index
-      this.$set(this.dataSources, index, {...source, checked: value})
+      this.$set(source, 'checked', value)
+      // 实现方法一
+      // this.$set(this.dataSources, index, source)
+      // 实现方法二
+      this.dataSources.splice(index, 1, source)
       // 修改选中数据
       const selectIndex = this.selectedList.findIndex(item => {
         return item[this.dataKey] === source[this.dataKey]

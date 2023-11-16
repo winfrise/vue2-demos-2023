@@ -10,12 +10,7 @@
                 @change="val => dispatch('VirtualListSelect', 'selectChange', val, source, index)"
     ></el-checkbox>
 
-    <ItemInner :source="source" :index="index"
-      :style="{
-        'margin-left': isCheckbox ? '10px' : '0px',
-        width: isCheckbox ? 'calc(100% - 30px)' : '100%'
-      }"
-     />
+    <ItemInner :source="source" :index="index" />
 
      <div class="close-btn" @click="handleRemove">
       <i class="el-icon-circle-close"></i>

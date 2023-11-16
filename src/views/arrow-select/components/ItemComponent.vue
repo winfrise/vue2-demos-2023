@@ -1,12 +1,11 @@
 <template>
   <label class="item-wrapper"
         :class="{
-          'item-checkbox': isCheckbox,
-          'item-checked': isCheckbox && source.checked,
+          'item-checked': source.checked,
           'active': index === currentIndex
         }"
   >
-    <el-checkbox v-if="isCheckbox"
+    <el-checkbox
                 v-model="source.checked"
                 @change="val => dispatch('VirtualListSelect', 'selectChange', val, source, index)"
     ></el-checkbox>
@@ -18,7 +17,7 @@
       }"
      />
 
-     <div class="close-btn" v-if="!isCheckbox" @click="handleRemove">
+     <div class="close-btn" @click="handleRemove">
       <i class="el-icon-circle-close"></i>
      </div>
   </label>
@@ -52,10 +51,9 @@ export default {
   },
   methods: {
     handleRemove() {
-      const nick = this.source.friendName || this.source.chatRoomNick
-      this.$confirm(`是否删除【${nick}】`, '提示')
+      this.$confirm(`是否删除【${this.source.text}】`, '提示')
         .then(() => {
-          this.dispatch('MessageForwardDialog','removeItem', this.source)
+          this.$message.error('功能开发中')
         })
     },
     dispatch(componentName, eventName, ...rest) {
@@ -97,25 +95,11 @@ export default {
   .close-btn {
     padding: 5px;
     font-size: 14px;
-    display: none;
     &:hover {
       color: #66b1ff;
     }
   }
-  &:hover {
-    .close-btn {
-      display: block;
-    }
-  }
 
-}
-
-::v-deep {
-  .el-checkbox {
-    &.is-checked {
-      color: #3766F4;
-    }
-  }
 }
 
 </style>

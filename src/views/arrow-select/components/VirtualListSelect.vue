@@ -71,7 +71,6 @@ export default {
     }
   },
   created() {
-    // 好友/群 列表选中事件
     this.$on('selectChange', (value, source, index) => {
       this.currentIndex = index
       this.$set(this.dataSources, index, {...source, checked: value})

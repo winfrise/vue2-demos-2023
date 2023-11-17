@@ -60,6 +60,22 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/reg-demo',
+    component: Layout,
+    meta: {
+      title: '正则Demo'
+    },
+    children: [
+      {
+        path: 'number-double',
+        component: () => import('@/views/reg-demo/number-double'),
+        meta: {
+          title: '小数点后2位'
+        }
+      }
+    ]
+  },
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',

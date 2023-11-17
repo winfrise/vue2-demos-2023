@@ -20,6 +20,11 @@
 
 <script>
   export default {
+    meta: {
+      cateTitle: '日期组件',
+      title: '自动选择开始时间',
+      icon: ''
+    },
     data() {
       return {
         value: ''

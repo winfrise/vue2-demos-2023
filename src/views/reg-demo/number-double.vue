@@ -15,32 +15,36 @@ export default {
   },
   methods: {
     onInput(value) {
-      // input输入框可以输入小数点后2位的正数
-      console.log('--------')
-      console.log('val', value)
-      // 替换不是【数字、点】
-      value = value.replace(/[^\d.]/g, '')
-      console.log('val', value)
 
-      value = value.replace(/\.{2,}/g, '.')
-      console.log('val', value)
+      value = value.match(/\d+\.?\d{0,2}/,'')
 
-      // 把点替换为 $#$
-      value = value.replace('.', '$#$')
-      console.log('val', value)
+      // // input输入框可以输入小数点后2位的正数
+      // console.log('--------')
+      // console.log('val', value)
+      // // 替换不是【数字、点】
+      // value = value.replace(/[^\d.]/g, '')
+      // console.log('val', value)
 
+      // // 把小数点2位后替换为点
+      // value = value.replace(/\.{2,}/g, '.')
+      // console.log('val', value)
 
-      // 全局把点替换为空
-      value = value.replace(/\./g, '')
-
-      // 把$#$替换为点
-      value = value.replace('$#$', '.')
-
-      // 拼接
-      value = value.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3')
+      // // 把第1个点替换为 $#$
+      // value = value.replace('.', '$#$')
+      // console.log('val', value)
 
 
-      value = value.replace(/^\./g, '')
+      // // 全局把点替换为空
+      // value = value.replace(/\./g, '')
+
+      // // 把$#$替换为点
+      // value = value.replace('$#$', '.')
+
+      // // 拼接
+      // value = value.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3')
+
+
+      // value = value.replace(/^\./g, '')
     },
     onInput1(value) {
       // 限制数量只能为正整数或者负整数，且开头不为0

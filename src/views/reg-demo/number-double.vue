@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-input v-model="value" @input="onInput"></el-input>
+    <el-input v-model="value" @input="value = value.match(/\d+\.?\d{0,2}/,'')"></el-input>
     <div>{{value}}</div>
   </div>
 </template>
